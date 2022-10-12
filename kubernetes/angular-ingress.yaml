@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: angular-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target:  /
+  namespace: test
+spec:
+  rules:
+  - host: "miangular.com"
+    http:
+      paths:
+      #- path: /server
+        #pathType: Prefix
+        #backend:
+          #service:
+            #name: apachephp-service
+            #port:
+              #number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: angular-service
+            port:
+              number: 80

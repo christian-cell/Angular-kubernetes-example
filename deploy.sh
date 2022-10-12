@@ -16,3 +16,6 @@ kubectl delete deployment angular-deployment
 #lo volvemos a generar el deployment
 kubectl apply -f ./kubernetes/angular-deployment.yaml
 
+#verificamos que los pods del deployment y el de la replica están running
+kubectl get pod --watch
+
