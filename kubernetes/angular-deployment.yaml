@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: angular
-  replicas: 5 # Number of replicas that will be created for this deployment
+  replicas: 2 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
@@ -15,9 +15,11 @@ spec:
     spec:
       containers:
       - name: angular
-        image: angular-kubernetes:1.0.1 # Image that will be used to containers in the cluster
+        image: angular-minikube:1.0.1 # Image that will be used to containers in the cluster
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80 # The port that the container is running on in the cluster
+      
 ---
 
 kind: Service  # Kubernetes API version
