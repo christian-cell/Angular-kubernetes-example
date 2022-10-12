@@ -11,7 +11,7 @@ ng build --configuration production
 docker build -t angular-minikube:1.0.1 .
 
 #eliminamos el deployment
-#kubectl delete deployment angular-deployment
+kubectl delete deployment angular-deployment
 
 #lo volvemos a generar el deployment
 kubectl apply -f ./kubernetes/angular-deployment.yaml
